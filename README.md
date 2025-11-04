@@ -1,7 +1,7 @@
 # Ex.No:6
 # IMPLEMENTATION OF THE BACK END OF THE COMPILER 
-## Register Number:
-## Date:
+## Register Number:212224220030
+## Date:27/10/25
 ## AIM:
 To write a program to implement the back end of the compiler.
 ## ALGORITHM:
@@ -13,7 +13,47 @@ To write a program to implement the back end of the compiler.
 6. Stop the program.
 ## PROGRAM:
 
+```
+#include <stdio.h> #include <ctype.h> #include <stdlib.h>
+
+int main() {
+int i = 2, j = 0, k = 2, k1 = 0; char ip[10], kk[10];
+FILE *fp;
+
+printf("Enter the filename of the intermediate code: "); scanf("%s", kk);
+
+fp = fopen(kk, "r"); if (fp == NULL) {
+printf("\nError in opening the file\n"); return 1;
+}
+printf("\nStatement\tTarget Code\n\n"); while (fscanf(fp, "%s", ip) != EOF) {
+printf("%s\tMOV %c,R%d SUB ", ip, ip[i + k], j);
+
+if (ip[i + 1] == '+')
+printf("ADD "); else
+printf("SUB ");
+
+if (islower(ip[i])) printf("%c,R%d\n", ip[i + k1], j);
+else
+printf("%c,%c\n", ip[i], ip[i + 2]);
+
+j++;
+k1 = 2;
+k = 0;
+}
+
+fclose(fp);
+ 
+return 0;
+}
+```
+Commands:
+```
+gcc program.c
+./a.out 
+```
 ## OUTPUT:
+<img width="1086" height="451" alt="image" src="https://github.com/user-attachments/assets/e2cfb963-492a-4e59-8e7b-f74107836dbe" />
+
 
 ## RESULT:
 The back end of the compiler is implemented successfully, and the output is verified.
